@@ -6,29 +6,38 @@ import DepartmentGroup from './DepartmentGroup'
 
 import { SearchBar } from 'vtex.store-components'
 
+import { useCssHandles } from 'vtex.css-handles'
+
+import './styles.css'
+
 const DepartmentSearch = () => {
 
 
   const { data, loading } = useQuery(QUERY_VALUE)
 
-  const [slug, Setslug] = useState("");
+  const [searchUrl, setSearchUrl] = useState("");
 
-  console.log("mi slug seleccionado es: ", slug)
+  const CSS_HANDLES = [
+    "container__search__department"
+  ]
+  const handles = useCssHandles(CSS_HANDLES)
 
-  console.log("mis datos de query:", data?.categories[0].children)
+  console.log("mi slug seleccionado es: ", searchUrl)
 
   return loading
     ?
     <div>loading ... </div>
     :
-    <div className='flex'>
-      <DepartmentGroup departments={data?.categories[0].children}
-        handleSetSlug={Setslug}
+    <div>
+      <DepartmentGroup
+        departments={data?.categories}
+        handleSetSlug={setSearchUrl}
       />
       <SearchBar
-        customSearchPageUrl={slug}
-        placeholder= "¿Qué buscas?"
-        displayMode= "search-and-clear-buttons"
+        customSearchPageUrl={searchUrl}
+        placeholder="¿Qué buscas?"
+        displayMode="search-and-clear-buttons"
+        className={handles.container__search__department}
       />
     </div>
 }
