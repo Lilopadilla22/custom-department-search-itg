@@ -1,114 +1,77 @@
-📢 Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+## Departamen Search
 
-# APP NAME
+Este componente tiene como objetivo ayudar al cliente a realizar una busquedad personalizada de acuerto a los departamentos que maneje su tienda.
+ ## vista del componente
 
-<!-- DOCS-IGNORE:start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- DOCS-IGNORE:end -->
-
-Under the app's name, you should explain the topic, giving a **brief description** of its **functionality** in a store when installed.
-
-Next, **add media** (either an image of a GIF) with the rendered components, so that users can better understand how the app works in practice. 
-
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
-
-## Configuration 
-
-In this section, you first must **add the primary instructions** that will allow users to use the app's blocks in their store, such as:
-
-1. Adding the app as a theme dependency in the `manifest.json` file;
-2. Declaring the app's main block in a given theme template or inside another block from the theme.
-
-Remember to add a table with all blocks exported by the app and their descriptions. You can verify an example of it on the [Search Result documentation](https://vtex.io/docs/components/all/vtex.search-result@3.56.1/). 
-
-Next, add the **props table** containing your block's props. 
-
-If the app exports more than one block, create several tables - one for each block. For example:
-
-### `block-1` props
-
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+![custom_department](https://user-images.githubusercontent.com/97923792/209365587-67bf7552-39a9-4ee0-a04c-484dd3d3113b.jpg)
 
 
-### `block-2` props
+## CONFUGURACION 
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+### Primero - Configuración Básica 
 
-Prop types are: 
+Ingresar al siguiente repositorio en GitHub react-app-template (https://github.com/vtex-apps/react-app-template) y crear un nuevo repositorio usando este template
 
-- `string` 
-- `enum` 
-- `number` 
-- `boolean` 
-- `object` 
-- `array` 
+### Segundo - Clonación del repositorio 
 
-When documenting a prop whose type is `object` or `array` another prop table will be needed. You can create it following the example below:
+Abrir la terminal e ingresar el comando git clone mas la URL del repositorio en gitHub así:
+git clone [url](), posteriormente acceda a la carpeta del proyecto en su repositorio local.
 
-- `propName` object:
+### Tercero - Editar el Manifest.json
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+Modificar en el archivo manifest.json:
+1ro. El valor del vendor con el nombre correspondiente a su vendor
+2do. El valor del name con el nombre con el que va a usar su componente. 
+3ro. Opcionalmente puede modificar la versión, el título y agregar una descripción, para darle un mejor esquema y explicación de lo que hace nuestro componente. 
+4to. Agregar las dependencias necesarias, que vaya a utilizar para su desarrollo.
 
+Ejemplo:  
+{  
+  "vendor": "itgloberspartnercl",  
+  "name": "custom-department-search",  
+  "version": "0.0.1",  
+  "title": "custom-department-search",    
+  "description": "Este componente tiene como objetivo ayudar al cliente a realizar una busquedad personalizada de acuerto a los departamentos que maneje su tienda."  
+}
 
-Remember to also use this Configuration section to  **showcase any necessary disclaimer** related to the app and its blocks, such as the different behavior it may display during its configuration. 
+Adicionalmente debe asegurarse de tener en los builders el store en su version 0.x así:
 
-## Modus Operandi *(not mandatory)*
+"builders":{   
+"store": "0.x"   
+}
 
-There are scenarios in which an app can behave differently in a store, according to how it was added to the catalog, for example. It's crucial to go through these **behavioral changes** in this section, allowing users to fully understand the **practical application** of the app in their store.
+## depedencias
 
-If you feel compelled to give further details about the app, such as it's **relationship with the VTEX admin**, don't hesitate to use this section. 
+1. "vtex.css-handles": "0.x",
+2. "vtex.store-graphql": "2.x",
+3. "vtex.store-components": "3.x"
 
-## Customization
+### Cuarto - Editar el Package.json 
 
-The first thing that should be present in this section is the sentence below, showing users the recipe pertaining to CSS customization in apps:
+Modificar en los archivos package.json ubicado de manera global asi como el que esta ubicado en la carpeta de react, el nombre y la versión de igual forma como fueron modificados en el archivo manifest.json
 
-`In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
+Ejemplo:  
 
-Thereafter, you should add a single column table with the available CSS handles for the app, like the one below. Note that the Handles must be ordered alphabetically.
+{  
+  "version": "0.0.1",  
+  "name": "custom-department-search"
+}
 
-| CSS Handles |
-| ----------- | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` |
+### Quinto - Instalar apps
 
+En la terminar dar ubicarse en la carpeta de react que nos proporciona el temple, cd react, luego escribir "yarn" para darle inicio a la instalacion de todos los nodulos que haran funcionar la aplicacion. 
 
-If there are none, add the following sentence instead:
+## Sexto - Ejecutar el preview de la tienda.
 
-`No CSS Handles are available yet for the app customization.`
+En su terminal digite el comando vtex link, si su aplicacion es lanzada sin ningún error, en su ternimal aparecerá la siguiente información:   
+(info: App linked successfully). 
 
-<!-- DOCS-IGNORE:start -->
+Para usar la aplicación en su tienda debe adicionar en el archivo manifest.json la dependencia correspondiente al componente.
 
-## Contributors ✨
+Ejemplo:  
+"dependencies": {  
+ "itgloberspartnercl.custom-department-search": "0.x",  
+}
 
-Thanks goes to these wonderful people:
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
-
-<!-- DOCS-IGNORE:end -->
-
----- 
-
-Check out some documentation models that are already live: 
-- [Breadcrumb](https://github.com/vtex-apps/breadcrumb)
-- [Image](https://vtex.io/docs/components/general/vtex.store-components/image)
-- [Condition Layout](https://vtex.io/docs/components/all/vtex.condition-layout@1.1.6/)
-- [Add To Cart Button](https://vtex.io/docs/components/content-blocks/vtex.add-to-cart-button@0.9.0/)
-- [Store Form](https://vtex.io/docs/components/all/vtex.store-form@0.3.4/)
+## Firma
+1. Lilia padilla Arends
