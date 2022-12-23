@@ -1,8 +1,11 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
+
+import { useCssHandles } from 'vtex.css-handles'
+import './styles.css'
 
 type Props = {
-  departments: [Category],
-  handleSetSlug: any
+  departments: Category[],
+  handleSetSlug: (slug: string) => void
 }
 
 type Category = {
@@ -12,12 +15,18 @@ type Category = {
 }
 
 const DepartmentGroup = ({ departments, handleSetSlug }: Props) => {
-  console.log("mi grupo de departamentos es: ", departments);
 
-  const onHandlesSetSlug = (event: any) => {
-    handleSetSlug(`${event.target.value}/$\{term\}&map=ft`)
+  const onHandlesSetSlug = (event: ChangeEvent<HTMLSelectElement>) => {
+    handleSetSlug(`/${event.target.value}/$\{term\}&map=ft`)
   }
-  const deparmentOpcion: any = departments.map((department: Category) => {
+
+  const CSS_HANDLES = [
+    "container__select__search",
+    "label__select__search"
+  ]
+  const handles = useCssHandles(CSS_HANDLES)
+
+  const deparmentOpcion: Array<JSX.Element> = departments.map((department: Category) => {
     return (
       <option value={department.slug} key={department.id}>
         {department.name}
@@ -27,8 +36,12 @@ const DepartmentGroup = ({ departments, handleSetSlug }: Props) => {
   return (
     <select
       onChange={onHandlesSetSlug}
-      defaultValue="value0">
-      <option disabled value="value0"> Seleccione una opcion</option>
+      defaultValue="value0"
+      className={handles.container__select__search}
+    >
+      <option disabled value="value0" className={handles.label__select__search}>
+        Escoge tu departamento fav
+      </option>
       {deparmentOpcion}
     </select>
   )

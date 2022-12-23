@@ -1,0 +1,12 @@
+.container__select__search {
+  width       : 180px;
+  border-color: aquamarine;
+  margin      : 10px;
+  font-size   : 10px;
+  margin-left : 65px;
+}
+
+
+.container__search__department {
+  width: 50%;
+}
