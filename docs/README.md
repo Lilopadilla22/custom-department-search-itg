@@ -1,12 +1,13 @@
-## Departamen Search
+## Department Search
 
-Este componente tiene como objetivo ayudar al cliente a realizar una busquedad personalizada de acuerto a los departamentos que maneje su tienda.
- ## vista del componente
+Este componente tiene como objetivo ayudar al cliente a realizar una busquedad personalizada de acuerto a los departamentos que maneje la tienda.
+
+## vista del componente
 
 ![custom_department](https://user-images.githubusercontent.com/97923792/209365587-67bf7552-39a9-4ee0-a04c-484dd3d3113b.jpg)
 
 
-## CONFUGURACION 
+## CONFIGURACION 
 
 ### Primero - Configuración Básica 
 
